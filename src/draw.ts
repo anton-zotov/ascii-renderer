@@ -1,5 +1,8 @@
 import { IColor } from './image-utils';
-import { symbolWidth, symbolHeight, symbols } from './symbols';
+import { symbols } from './symbols';
+
+export const symbolWidth = 3;
+export const symbolHeight = 7;
 
 export function draw(imageMatrix: IColor[][]): void {
     const blockCols = Math.floor(imageMatrix.length / symbolWidth);
@@ -22,14 +25,14 @@ export function draw(imageMatrix: IColor[][]): void {
         }
     }
 
-    document.getElementById('output').innerHTML = '';
+    let text = '';
     for (let line of blocks) {
         const normalized = line.map((density) =>
             Math.floor(
                 ((255 - density / symbolWidth / symbolHeight) / 255) * Object.keys(symbols).length,
             ),
         );
-        document.getElementById('output').innerHTML +=
-            normalized.map((density) => symbols[density]).join('') + '<br />';
+        text += normalized.map((density) => symbols[density]).join('') + '<br />';
+        document.getElementById('output').innerHTML = text;
     }
 }
