@@ -23,3 +23,22 @@ body {
     width: fit-content;
     overflow: hidden;
 }
+
+.row {
+    line-height: 1.1;
+}
+
+.col {
+    margin: 0 -0.2px;
+}
+
+#colors-button {
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    padding: 4px 16px;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: rgb(76, 107, 247);
+    color: white;
+}
